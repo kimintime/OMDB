@@ -60,7 +60,7 @@ function mainSearch() {
 	
 	
 
-	var url = 'http://www.omdbapi.com/?s='+movie+'&page='+index+'&apikey=b823da4c';
+	var url = 'https://www.omdbapi.com/?s='+movie+'&page='+index+'&apikey=b823da4c';
 	var xmlhttp = new XMLHttpRequest();
 
 	document.getElementById('content').innerHTML = "";
@@ -111,7 +111,7 @@ function movieSearch(movie) {
 
 	var title = movie;
 
-	var url = "http://www.omdbapi.com/?i="+title+"&apikey=b823da4c";
+	var url = "https://www.omdbapi.com/?i="+title+"&apikey=b823da4c";
 	var xmlhttp = new XMLHttpRequest();
 
 	xmlhttp.open("GET", url, true);
