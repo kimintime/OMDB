@@ -1,0 +1,175 @@
+.entry {
+  margin: auto;
+  width: 50%;
+  padding: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.custom-search {
+  position: relative;
+}
+
+.custom-search-input {
+  width: 100%;
+  padding-right: 100px !important;
+  box-sizing: border-box;
+}
+
+.custom-search-botton {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  z-index: 4;
+  border: none;
+  border-radius: 0;
+  background-color: white;
+}
+
+i.fas {
+  color: black;
+}
+
+
+#mySearch {
+
+  cursor: pointer;
+}
+
+
+
+.input-placeholder-false::-webkit-input-placeholder {
+     color: #ff534f;
+     ::-webkit-input-placeholder /* Chrome - Opera - Safari */
+      ::-moz-placeholder /* Firefox 19+ */
+      :-ms-input-placeholder /* IE 10 */
+      :-moz-placeholder /* Firefox 18- */
+      margin: auto;
+}
+
+.thumbnail {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 50%;
+}
+
+h3 {
+
+  font-size: 20px;
+}
+
+h1 {
+  color: darkgrey;
+  text-align: center;
+}
+
+.movie {
+  border-bottom-style: dotted;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.results {
+
+  margin-bottom: 50px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.movielist {
+  padding-left: 0;
+  list-style-position: inside;
+  list-style: none;
+
+}
+
+.space {
+
+  padding-right: 25px;
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+.imgspace {
+
+  padding-right: 5px;
+}
+
+
+p {
+
+  margin-left: 40px;
+}
+
+a {
+  font-size: 20px;
+  vertical-align: middle;
+  text-decoration: underline;
+}
+
+footer {
+
+  padding-bottom: 50px;
+}
+
+.end {
+
+  font-size: 20px;
+  text-decoration: bold; 
+  text-decoration:  underline;
+}
+
+
+
+.scroll {
+    color: #fff;
+    margin-top: 100px
+}
+
+#toTopBtn {
+    position: fixed;
+    bottom: 26px;
+    right: 39px;
+    z-index: 98;
+    padding: 21px;
+    background-color: hsla(5, 76%, 62%, .8)
+}
+
+.js .cd-top--fade-out {
+    opacity: .5
+}
+
+.js .cd-top--is-visible {
+    visibility: visible;
+    opacity: 1
+}
+
+.js .cd-top {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s, background-color .3s
+}
+
+.cd-top {
+    position: fixed;
+    bottom: 20px;
+    bottom: var(--cd-back-to-top-margin);
+    right: 20px;
+    right: var(--cd-back-to-top-margin);
+    display: inline-block;
+    height: 40px;
+    height: var(--cd-back-to-top-size);
+    width: 40px;
+    width: var(--cd-back-to-top-size);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .05) !important;
+    background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1571057658/cd-top-arrow.svg) no-repeat center 50%;
+    background-color: hsla(5, 76%, 62%, .8);
+    background-color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.8)
+}
+
