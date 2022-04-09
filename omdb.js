@@ -195,6 +195,27 @@ function mainResults(jsonObj) {
 
 		}.bind(null, i));
 	}
+
+	var posters = document.getElementsByClassName("thumbnail");
+	
+	for(var i = 0; i < posters.length; i++) {
+
+		posters[i].addEventListener("click", function(i) {
+
+			document.getElementById("results").style.display = "";
+
+			var movie = data.Search[i].imdbID;
+
+			//console.log(movie);
+
+			movieSearch(movie);
+        	
+			$('html, body').animate({
+  			scrollTop: $("#results").offset().top
+			});
+
+		}.bind(null, i));
+	}
 }
 
 
