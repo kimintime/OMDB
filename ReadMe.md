@@ -1,4 +1,3 @@
-
 # OMDB Movie Search
 - The OMDB Movie Search app allows the user to search the OMDB for movie or tv shows, the page then displaying the results. The results are shown in groups of not greater than ten for each page. 
 - The user can click on each title to see more information. There’s the option to click through the pages of results in their sequential order, or skip to the last page, and scroll back from there, or to skip back to the first page of results.
@@ -37,4 +36,5 @@
 - I used plenty of CSS.
 - There’s no onclicks.
 - I did the best I could.
+	- The code for displaying the results isn’t as elegant as it could be. I’m not using much in the way of JavaScript methods for adding elements to a page, but because I was using Bootstrap, adding lines of HTML the old-fashioned way helped me keep track of my containers and my rows, and their formatting.
 
