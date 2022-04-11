@@ -76,7 +76,6 @@ function mainSearch() {
     document.getElementById('footer').innerHTML = "";
 
 //Puts the search value and the current index as the page number for the search results into the URL.
-    
     var movie = document.getElementById("myInput").value;
 
 //The movie and index variables feed the search string and the page to start out on to the URL. 
@@ -135,7 +134,7 @@ function mainSearch() {
 }
 
 
-//Queries OMDB for results of the specific movie clicked on from the search results. Then passes that object to the showMovie function for parsing of the JSON object.
+/*Queries OMDB for results of the specific movie clicked on from the search results. Then passes that object to the showMovie function for parsing of the JSON object.*/
 
 function movieSearch(movie) {
 
@@ -173,16 +172,13 @@ function mainResults(jsonObj) {
     var totalPages = data.totalResults / 10;
 
 //Rounds up the total number of pages.
-
     totalPages = Math.ceil(totalPages);
 
 //Sets up the div to display the results
-
     var x = document.getElementById("hide");
     x.style.display = "";
 
 //Iterates through the search results from OMDB, and formats the HTML.
-
     for(var i = 0; i < data.Search.length; i++) {
 
         list += '<div class="col-md-4 text-center results"><h3>' + data.Search[i].Title + '</h3>';
@@ -191,7 +187,7 @@ function mainResults(jsonObj) {
         list += '<li><b>Type:</b> ' + data.Search[i].Type + '</li>';
         list += '</ul>';
         
-/*If there's a poster at OMDB, formats the display and adds a More button. Adds a default image if there's no poster.*/
+//If there's a poster at OMDB, formats the display and adds a More button. Adds a default image if there's no poster.
 
         if(data.Search[i].Poster !== "N/A") {
 
@@ -205,8 +201,7 @@ function mainResults(jsonObj) {
         }
     }
     
-//Prints out the HTML to the div.
-    
+//Prints out the HTML to the div.   
     document.getElementById("hide").innerHTML = list + endRow;
 
 /*If the search results are only one page (10 or less), let the footer be empty. Otherwise, send the number of pages to the footer function, for formatting of the pagination in the footer.*/
@@ -269,7 +264,7 @@ function mainResults(jsonObj) {
     }
 }
 
-/*Formats the footer to show the correct page, and the total number of pages, passing on the number of pages to the goForward function.*/
+//Formats the footer to show the correct page, and the total number of pages, passing on the number of pages to the goForward function.
 
 function footer(totaPages) {
 
@@ -287,11 +282,10 @@ function footer(totaPages) {
     more.innerHTML = list;
 
 
-//Sends the total number of pages to the goForward function, to handle clicking through to the next page.
-    
+//Sends the total number of pages to the goForward function, to handle clicking through to the next page.  
     goForward(pages);
 
-/*If the index counter for what page we're on is greater than 2, then format the footer to show Prev and Last page links.*/
+//If the index counter for what page we're on is greater than 2, then format the footer to show Prev and Last page links.
     
     if(index > 1) {
 
@@ -348,7 +342,6 @@ function footer(totaPages) {
         //console.log(more.innerHTML);
 
 //Calls the goBack function for the previous page link.
-
         goBack();
 
         var first = document.getElementById("first");
@@ -356,7 +349,6 @@ function footer(totaPages) {
         first.addEventListener("click", function() {
 
 //Sets the index to 1 so that the search results start from the 1st page.
-
         index = 1;
 
 /*If there's an input value in session storage, then get it now, and make it the value being searched, and return the index of the page of results to process to the mainSearch function.*/
@@ -424,7 +416,7 @@ function goForward(pages) {
     });
 }
 
-/*Parses the JSON object that contains the results for a given movie, and formats the HTML. Also adds a link to IMDB, given that we have the IMDB ID.*/
+//Parses the JSON object that contains the results for a given movie, and formats the HTML. Also adds a link to IMDB, given that we have the IMDB ID.
 
 function showMovie(jsonObj2) {
 
@@ -496,14 +488,13 @@ function showMovie(jsonObj2) {
     }
     
 //Sets up the divs to display the results
-
     document.getElementById('content').style.display = "";
     document.getElementById('content').innerHTML = text;
 
     //console.log(document.getElementById('content').innerHTML);
     
 //Handles the close button for the results
-
+    
     var close = document.querySelectorAll(".close");
 
     for(var i = 0; i < close.length; i++) {
