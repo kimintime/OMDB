@@ -1,6 +1,8 @@
 //---Javascript Project 2 for Laura UAS Javascript Course: OMDBapi---
 
-/*Global variables are set for the JSON object that handles the search results for all movies, and the JSON object that handles specific titles. I decided to keep these two separate, I think I'd run into problems later on with pagination. The index counter for number of pages of results is also global, given how many functions need access to it.*/
+/*Global variables are set for the JSON object that handles the search results for all movies, and the JSON object that handles specific titles. I decided
+to keep these two separate, I think I'd run into problems later on with pagination. The index counter for number of pages of results is also global, given
+how many functions need access to it.*/
 
 var jsonObj;
 var jsonObj2;
@@ -21,7 +23,8 @@ document.addEventListener("keyup", function(event) {
 });
 
 
-/*Listens for the click on the search input and goes to the mainSearch function, passing along the index counter, which is reset to 1 here again as an ounce of prevention.*/
+/*Listens for the click on the search input and goes to the mainSearch function, passing along the index counter, which is reset to 1 here again as an
+ounce of prevention.*/
 
 document.getElementById('mySearch').addEventListener('click', function(){
     
@@ -32,7 +35,8 @@ document.getElementById('mySearch').addEventListener('click', function(){
 });
 
 
-/*JQuery animation for the Scroll to Top button, such that it scrolls smooth and slow. Animations aren't my thing, and I find I get them working better in JQuery, even if JQuery is also not really my thing.*/
+/*JQuery animation for the Scroll to Top button, such that it scrolls smooth and slow. Animations aren't my thing, and I find I get them working better in
+JQuery, even if JQuery is also not really my thing.*/
 
 $(document).ready(function() {
     
@@ -66,7 +70,8 @@ $(document).ready(function() {
 
 function mainSearch() {
     
-/*Hides the revelant tags so that there's no leftover styling in between new searches. This function handles multiple pages for the same search result, hence all the re-clearing of HTML tags.*/
+/*Hides the revelant tags so that there's no leftover styling in between new searches. This function handles multiple pages for the same search result,
+hence all the re-clearing of HTML tags.*/
 
     var x = document.getElementById("hide");
     x.style.display = "none";
@@ -85,7 +90,8 @@ function mainSearch() {
 //Added this innerHTML to clear some styling from previous searches.    
     document.getElementById('content').innerHTML = "";
 
-/*If the search field is empty, give an error message. Otherwise, clear that error message and input field, get the XML, and send the JSON object to the mainResults function for parsing.*/
+/*If the search field is empty, give an error message. Otherwise, clear that error message and input field, get the XML, and send the JSON object to the
+mainResults function for parsing.*/
 
     if (movie == null || movie == "") {
 
@@ -134,7 +140,8 @@ function mainSearch() {
 }
 
 
-/*Queries OMDB for results of the specific movie clicked on from the search results. Then passes that object to the showMovie function for parsing of the JSON object.*/
+/*Queries OMDB for results of the specific movie clicked on from the search results. Then passes that object to the showMovie function for parsing of the
+JSON object.*/
 
 function movieSearch(movie) {
 
@@ -160,7 +167,8 @@ function movieSearch(movie) {
 }
 
 
-/*Basically parses the JSON object of search results and displays them on the page, but of course does much more than that, setting up the page to later do this for multiple pages of search results.*/
+/*Basically parses the JSON object of search results and displays them on the page, but of course does much more than that, setting up the page to later
+do this for multiple pages of search results.*/
 
 function mainResults(jsonObj) {
 
@@ -204,7 +212,8 @@ function mainResults(jsonObj) {
 //Prints out the HTML to the div.   
     document.getElementById("hide").innerHTML = list + endRow;
 
-/*If the search results are only one page (10 or less), let the footer be empty. Otherwise, send the number of pages to the footer function, for formatting of the pagination in the footer.*/
+/*If the search results are only one page (10 or less), let the footer be empty. Otherwise, send the number of pages to the footer function, for
+formatting of the pagination in the footer.*/
     
     if(index == 1 && totalPages == 1) {
 
@@ -215,7 +224,8 @@ function mainResults(jsonObj) {
         footer(totalPages);
     }
 
-/*Sets up the More buttons, iterates through them, returns the given IMDB ID to the movieSearch function to query OMDB for the correct movie. JQueary for animation to scroll to that div, to more easily see the results.*/    
+/*Sets up the More buttons, iterates through them, returns the given IMDB ID to the movieSearch function to query OMDB for the correct movie. JQueary for
+animation to scroll to that div, to more easily see the results.*/    
 
     var buttons = document.getElementsByClassName("btn-success");
     
@@ -235,7 +245,8 @@ function mainResults(jsonObj) {
             scrollTop: $("#results").offset().top
             });
 
-/*Without this bind, the event listener was blissfully unaware of the i counter, and it's needed to match the right button click to the right IMDB ID. Credit to Stack Overflow.*/
+/*Without this bind, the event listener was blissfully unaware of the i counter, and it's needed to match the right button click to the right IMDB ID.
+Credit to Stack Overflow.*/
 
         }.bind(null, i));
     }
@@ -300,14 +311,16 @@ function footer(totaPages) {
 
         //console.log(more.innerHTML);
 
-/*Calls the goBack function, as it has the event listener for the Prev link to go back. Calls the goForward function, passing the number of pages to the function, so that it can go to the last page.*/
+/*Calls the goBack function, as it has the event listener for the Prev link to go back. Calls the goForward function, passing the number of pages to the
+function, so that it can go to the last page.*/
 
         goBack();
 
         goForward(pages);
     }
 
-/*Listens for when the Continue link is clicked, adding to the index and sending it back to the mainSearch function, so that it processes the query for that page of results.*/
+/*Listens for when the Continue link is clicked, adding to the index and sending it back to the mainSearch function, so that it processes the query for
+that page of results.*/
 
     var keepGoing = document.getElementById("continue");
 
@@ -327,7 +340,8 @@ function footer(totaPages) {
         mainSearch(index);
     });
     
-/*If the page we're on is greater or equal to the number of pages, then format the footer such that you can go back to the previous page, or go back to the first.*/    
+/*If the page we're on is greater or equal to the number of pages, then format the footer such that you can go back to the previous page, or go back to
+the first.*/    
 
     if(index >= pages) {
 
@@ -351,7 +365,8 @@ function footer(totaPages) {
 //Sets the index to 1 so that the search results start from the 1st page.
         index = 1;
 
-/*If there's an input value in session storage, then get it now, and make it the value being searched, and return the index of the page of results to process to the mainSearch function.*/
+/*If there's an input value in session storage, then get it now, and make it the value being searched, and return the index of the page of results to
+process to the mainSearch function.*/
         
         if(sessionStorage.getItem('movie', document.getElementById('myInput').value) !== null) {
 
@@ -375,7 +390,8 @@ function goBack() {
 
     previous.addEventListener("click", function() {
 
-/*If the page number is two or more, then subtract 1 from the page number. Then if sessionstorage has the input value originally entered, then get that value and put it back, and then call the mainSearch function, with the given page number, to give the results for the previous page.*/
+/*If the page number is two or more, then subtract 1 from the page number. Then if sessionstorage has the input value originally entered, then get that
+value and put it back, and then call the mainSearch function, with the given page number, to give the results for the previous page.*/
 
         if(index > 1) {
 
@@ -394,7 +410,8 @@ function goBack() {
 }
 
 
-/*Sets up the event listerner for clicking on the link in the footer to go to the last page of search results, calling back up the searched-for value from sessionstorage, and  sending that index to the mainSearch for displaying the last page of the search results.*/
+/*Sets up the event listerner for clicking on the link in the footer to go to the last page of search results, calling back up the searched-for value from
+sessionstorage, and  sending that index to the mainSearch for displaying the last page of the search results.*/
 
 function goForward(pages) {
 
@@ -448,7 +465,8 @@ function showMovie(jsonObj2) {
 
     text += '<ul class="list-inline space">'
     
-/*Iterates through the ratings from IMDB, Rotten Tomatoes and Metacritic. They're always 0,1,2 in the OMDB, so this loop adds the right logo depending on the index, and allows for a new ratings site if one is added.*/
+/*Iterates through the ratings from IMDB, Rotten Tomatoes and Metacritic. They're always 0,1,2 in the OMDB, so this loop adds the right logo depending on
+the index, and allows for a new ratings site if one is added.*/
 
     for(var i = 0; i < data.Ratings.length; i++) {
 
