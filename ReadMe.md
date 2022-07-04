@@ -2,6 +2,10 @@
 - The OMDB Movie Search app allows the user to search the OMDB for movie or tv shows, the page then displaying the results. The results are shown in groups of not greater than ten for each page. 
 - The user can click on each title to see more information. There’s the option to click through the pages of results in their sequential order, or skip to the last page, and scroll back from there, or to skip back to the first page of results.
 
+# Check out the website at
+
+https://omdbmoviesearch.netlify.app
+
 ## Searching for Titles
 - If there is no result found for a given search, the page displays “No Result”.
 - To execute the search, simply hit enter, or click on the magnifying glass icon.
